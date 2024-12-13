@@ -56,7 +56,7 @@ const HotJobsCard = ({ job }) => {
 
             {/* Fourth Row */}
             <div className="flex items-center justify-between px-4 py-3">
-            <p className="text-lg font-semibold text-gray-800">$ {salaryRange.min} - {salaryRange.max}</p>
+            <p className="text-lg font-semibold text-gray-800">$ {salaryRange?.min} - {salaryRange?.max}</p>
             <Link to={`/jobDetails/${_id}`}>
                 <button className="bg-blue-500 text-white text-sm px-4 py-2 rounded hover:bg-blue-600">
                     Apply Now

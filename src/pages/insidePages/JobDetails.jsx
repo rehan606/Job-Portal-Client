@@ -65,7 +65,7 @@ const JobDetails = () => {
           <div>
             <h4 className="text-gray-500">Salary</h4>
             <p className="text-gray-800">
-              ${salaryRange.min} - {salaryRange.max} Yearly
+              ${salaryRange?.min} - {salaryRange?.max} Yearly
             </p>
           </div>
           <div>

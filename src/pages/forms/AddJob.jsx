@@ -15,9 +15,9 @@ const AddJob = () => {
     console.log(initialData);
 
     // create these filds in new array
-    const { minSalary, maxSalary, currency, ...newJob } = initialData;
+    const { min, max, currency, ...newJob } = initialData;
     console.log(newJob);
-    newJob.selaryRange = { minSalary, maxSalary, currency };
+    newJob.selaryRange = { min, max, currency };
     console.log(newJob);
 
     // Requirements split in new line
@@ -38,10 +38,10 @@ const AddJob = () => {
         if (data.insertedId) {
           Swal.fire({
             title: "Good job!",
-            text: "You clicked the button!",
+            text: "Job Post Successfully!",
             icon: "success",
           });
-          navigate("/");
+          navigate("/myPostedJob");
         }
       });
   };
@@ -64,27 +64,46 @@ const AddJob = () => {
             <input
               type="text"
               id="jobTitle"
-              name="jobTitle"
+              name="title"
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
               placeholder="Enter job title"
             />
           </div>
 
-          {/* Company Name */}
-          <div className="mb-4">
-            <label
-              htmlFor="companyName"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Company Name
-            </label>
-            <input
-              type="text"
-              id="companyName"
-              name="companyName"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              placeholder="Enter company name"
-            />
+          <div className='flex justify-between gap-4'>
+            {/* Company Name */}
+            <div className="mb-4 w-full">
+              <label
+                htmlFor="companyName"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Company Name
+              </label>
+              <input
+                type="text"
+                id="companyName"
+                name="company"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                placeholder="Enter company name"
+              />
+            </div>
+
+            {/* application deadline */}
+            <div className="mb-4 w-full">
+              <label
+                htmlFor="applicationDeadline"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Deadline
+              </label>
+              <input
+                type="date"
+                id="applicationDeadline"
+                name="applicationDeadline"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                placeholder="Deadline"
+              />
+            </div>
           </div>
 
           <div className="flex justify-between gap-4">
@@ -99,7 +118,7 @@ const AddJob = () => {
               <input
                 type="text"
                 id="jobLocation"
-                name="jobLocation"
+                name="location"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 placeholder="Enter job location"
               />
@@ -136,14 +155,14 @@ const AddJob = () => {
               <input
                 type="number"
                 id="minSalary"
-                name="minSalary"
+                name="min"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 placeholder="Min Salary"
               />
               <input
                 type="number"
                 id="maxSalary"
-                name="maxSalary"
+                name="max"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 placeholder="Max Salary"
               />
@@ -171,7 +190,7 @@ const AddJob = () => {
             </label>
             <textarea
               id="jobDescription"
-              name="jobDescription"
+              name="description"
               rows="4"
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
               placeholder="Job Describe "
